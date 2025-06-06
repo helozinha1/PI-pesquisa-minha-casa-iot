@@ -1,0 +1,178 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background: rgba(10, 23, 49, 0.98); /* Fundo quase preto opaco */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    width: 100%;
+    max-width: 1300px; /* Aumentado para mais largura horizontal */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(76, 175, 80, 0.5);
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #e0e0e0;
+}
+
+strong {
+    color: #a0d0ff;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #388E3C;
+    text-decoration: underline;
+}
+
+.note {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 5px solid #4CAF50;
+    padding: 15px 20px;
+    margin: 25px 0;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.95em;
+    color: #e0e0e0;
+}
+
+/* Estilos da Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    vertical-align: top;
+}
+
+th {
+    background-color: rgba(76, 175, 80, 0.6);
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+td {
+    color: #ffffff;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para listas dentro de células de tabela */
+td ul, td ol {
+    margin: 10px 0 10px 20px;
+    padding-left: 0;
+    list-style-type: disc;
+    color: #ffffff;
+}
+td ol {
+    list-style-type: decimal;
+}
+td ul li, td ol li {
+    margin-bottom: 5px;
+}
+
+/* Estilo para blocos de código (pre) dentro de células de tabela */
+td pre {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Estilo para código inline */
+code {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #a0d0ff;
+}
+
+/* Créditos no rodapé */
+.credits {
+    margin-top: 40px;
+    font-size: 1em;
+    color: #c0c0c0;
+    text-align: center;
+}
+
+.credits h2 {
+    color: #fff;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.credits ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.credits ul li {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #e0e0e0;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Instalação e Configuração - HomeAssistantOS e MQTT</title>
+    <link rel="stylesheet" href="guia.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Guia de Instalação e Configuração - HAGMA</h1>
+
+        <div class="note">
+            <p>Este documento detalha os passos essenciais para a instalação do <strong>HomeAssistantOS</strong> em um Raspberry Pi e a configuração da integração <strong>MQTT</strong>, fundamental para a comunicação entre dispositivos em sua casa inteligente. As informações estão estruturadas para facilitar o acompanhamento e a implementação.</p>
+        </div>
+
+        <h2>Tabela de Instalação e Configuração</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>CATEGORIA</th>
+                    <th>FASE</th>
+                    <th>DESCRIÇÃO DETALHADA</th>
+                    <th>DICAS/OBSERVAÇÕES IMPORTANTES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>HomeAssistantOS</strong></td>
+                    <td><strong>Sistema Operacional</strong></td>
+                    <td>Sistema operacional minimalista e otimizado para rodar o Home Assistant de forma eficiente no Raspberry Pi.</td>
+                    <td>Essencial para uma base sólida e desempenho dedicado à automação.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Instalação (SD)</strong></td>
+                    <td>
+                        <ul>
+                            <li>Conectar cartão SD (32GB+ recomendado) no computador.</li>
+                            <li>Baixar imagem do HomeAssistantOS para o modelo do Raspberry Pi.</li>
+                            <li>Usar ferramenta (ex: <a href="https://www.balena.io/etcher/" target="_blank">Balena Etcher</a>) para gravar imagem no cartão SD.</li>
+                            <li>Inserir cartão no Raspberry Pi.</li>
+                        </ul>
+                    </td>
+                    <td>Utilize um cartão de boa qualidade (Classe 10/U1). O Balena Etcher é simples e seguro para este processo.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Conexão Rasp.</strong></td>
+                    <td>
+                        <ul>
+                            <li>Ligar Raspberry Pi na internet via <strong>cabo Ethernet</strong> (conectado ao roteador).</li>
+                            <li>Conectar fonte de alimentação.</li>
+                        </ul>
+                    </td>
+                    <td>A conexão via Ethernet é recomendada para a primeira inicialização e para maior estabilidade.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Acesso Inicial</strong></td>
+                    <td>
+                        <ul>
+                            <li>O Raspberry Pi iniciará o HomeAssistantOS automaticamente.</li>
+                            <li>Abrir navegador e acessar <code>http://homeassistant.local:8123</code>.</li>
+                            <li>Esperar o término da configuração inicial.</li>
+                            <li>Configurar itens e preferências.</li>
+                        </ul>
+                    </td>
+                    <td>O processo inicial pode levar alguns minutos. Em caso de problemas, verifique o IP do Raspberry Pi no seu roteador.</td>
+                </tr>
+                <tr>
+                    <td><strong>MQTT</strong></td>
+                    <td><strong>Criação MQTT</strong></td>
+                    <td>
+                        <ol>
+                            <li><strong>Instalar Broker MQTT</strong> (ex: Mosquitto broker via Suplementos/Add-ons do Home Assistant).</li>
+                            <li><strong>Configurar Home Assistant</strong> para usar o MQTT (Configurações > Dispositivos e Serviços > Adicionar Integração > MQTT).</li>
+                        </ol>
+                    </td>
+                    <td>O Mosquitto é o broker mais comum para Home Assistant. Certifique-se de iniciar o broker e configurar credenciais de acesso, se necessário.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Automação/Scripts</strong></td>
+                    <td>
+                        Criar automações ou scripts no Home Assistant para enviar (publicar) e receber (subscrever) mensagens MQTT, controlando os dispositivos da casa.
+                        <p>Exemplo (em automações ou scripts):</p>
+                        <pre><code>action:
+  service: mqtt.publish
+  data:
+    topic: "home/lampada_externa/comando"
+    payload: "LIGAR"
+</code></pre>
+                        <pre><code>trigger:
+  platform: mqtt
+  topic: "home/porta_principal/status"
+sensor:
+  - platform: mqtt
+    name: "Status Porta Principal"
+    state_topic: "home/porta_principal/status"
+</code></pre>
+                    </td>
+                    <td>Utilize tópicos MQTT claros e padronizados (ex: <code>home/sala/luz/comando</code>, <code>home/quarto/temperatura/estado</code>).</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Replicar Funções</strong></td>
+                    <td>Publicar e replicar os scripts/automações e configurações MQTT para todas as funções e dispositivos desejados na casa inteligente.</td>
+                    <td>Teste cada função individualmente antes de replicar em larga escala. Mantenha os tópicos organizados.</td>
+                </tr>
+            </tbody>
+        </table>
+
+      
+    </div>
+</body>
+</html>
